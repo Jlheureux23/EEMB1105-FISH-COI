@@ -10,40 +10,65 @@ For all mac users you can find a terminal window by double clicking on the finde
 
     ssh *user.name*@login.discovery.neu.edu 
 
-instead of *user.name*, add your own credentials (usually, last name followed by a ".", then your first initial enter your password when prompted. Your password will not show up as you type - because someone might be reading it over your shoulder.
+Repeat the steps from your last tutorial to login into Discovery. instead of *user.name*, add your own credentials (usually, last name followed by a ".", then your first initial enter your password when prompted). Remember that your password will not show up as you type - because someone might be reading it over your shoulder.
 
-## 3. change to the course directory containing the COI fish sequences
-
-    cd /work/jennifer.bowen/EEMB1105/Fish_COI_barcode_JL_30-359950134_ab1/
-
-## 4. make a directory (folder) for your DNA sequences in your scratch directory
+## 3. make a directory (folder) for your DNA sequences in your scratch directory
 
     mkdir /scratch/*user.name*/FISH-COI
 
-## 5. copy the ab1 files from the Fish_COI_barcode_JL_30-359950134_ab1/ (where you should be) to your new directory in scratch
+Just like in the previous tutorial when you made a directory called 'test', you are going to make a directory and name it 'Fish-COI' 
+
+## 4. change to your scratch directory to make sure you successfully created the 'Fish-COI' directory
+
+    cd /scratch/*user.name*
+    ls
+
+Remember that cd stands for 'change directory' and 'ls' lists the files and directories in that location. You should see 'Fish-COI' after entering the 'ls' command. 
+
+## 5. change to the course directory containing the COI fish sequences
+
+    cd /work/jennifer.bowen/EEMB1105/Fish_COI_barcode_JL_30-359950134_ab1/
+    ls
+
+The course directory contains our COI fish sequences. We need to change to the course directory so that we can copy the fish seqeunce files.  If you type in 'ls' again, you should see the 88 file sequences. 
+
+## 6. Copy the ab1 files from the Fish_COI_barcode_JL_30-359950134_ab1/ (where you should be) to your new directory in scratch (Fish-COI)
 
     cp *ab1 /scratch/*user.name*/FISH-COI
+    
+The cp command has two entries.  the first is the file or files that you want to copy, the second is the destination where you want the copy to go. "*" is a wildcard expression.  In this case (as long as you are in the /work/jennifer.bowen/EEMB1105/Fish_COI_barcode_JL_30-359950134_ab1/ directory) it means any file ending in ab1. You want to copy all the ab1 files to your own scratch directory that you created using mkdir for the fish COI sequences
 
-## 6. change to the directory where you just moved all the sequences to 
+## 7. change to the directory where you just moved all the sequences to and make sure that you successfully moved the sequences.
 
     cd /scratch/*user.name*/FISH-COI
+    ls
     
-## 7. Download the samples to your own computer and view the chromatogram files using 4peaks.  First you will need to download the 4Peaks software from here. https://nucleobytes.com/4peaks/index.html... If you have trouble with this, talk to Johannah.. she's the best!
+After entering the 'ls' command, you should see all the fish sequences that are now in your scratch directory
+    
+## 7. In the next series of steps, you will use command to download the samples to your own computer and view the chromatogram files using thes software, 4peaks. A four-color chromatagram displays the results of a DNA sequencing run (each color represents a nucleotide base - A, T, C, G). To familiarize yourself with chromatograms, read through this document: https://brcf.medicine.umich.edu/cores/advanced-genomics/faqs/sanger-sequencing-faqs/interpretation-of-sequencing-chromatograms/  Email me if you have any questions about chromatograms! 
 
-#### 7a. open a new terminal window on your own computer by moving your mouse to the upper left of your screen and clicking on "Shell" the click on "New Window"
+### 7a. First you will need to download the 4Peaks software from here. https://nucleobytes.com/4peaks/index.html.
 
-#### 7b. make a folder on your computer to copy the "ab1" files like this
+#### 7b. open a new terminal window on your own computer by moving your mouse to the upper left of your screen and clicking on "Shell" the click on "New Window"
+
+#### 7c. make a folder on your computer to copy the "ab1" files like this
 
      mkdir ~/Downloads/FISH-COI/
 
-#### 7c. copy the files from the discovery cluster to your machine like this (make sure that you replace "user.name" with your own, e.g. vineis.j .  No need for the quotes, they are just there to remind you to use your own user name. 
+#### 7d. copy the files from the discovery cluster to your machine like this (make sure that you replace "user.name" with your own, e.g. lheureux.j) .  No need for the quotes, they are just there to remind you to use your own user name. 
 
     rsync -HalP "user.name"@login.discovery.neu.edu:/scratch/"user.name"/FISH-COI/*ab1 ~/Downloads/FISH-COI/
 
 #### 7d. You should see the files download one at a time.  When its complete, you can open the ab1 files using 4Peaks.  Just open the software and click on the word "File" in the upper left of your computer display and then select "Open".  Then navigate in your Finder window to the ~/Downloads/FISH-COI/ and select the file that you would like to veiw. So beautiful!
 
+#### 7e. 4peaks Question 1: Choose one of your sequences to view and screenshot a location that shows a heterozygous peak (double peak). Be sure to write the base number as well. 
 
-## 8.  Load the module(settings) for all of the software that you will reuire for the analysis
+#### 7f. 4peaks Question 2: 
+
+#### 7g. 4peaks Question 3: 
+
+
+## 8.  Load the module(settings) for all of the software that you will require for the analysis
 
     module load EEMB1105/01-24-2020
 
